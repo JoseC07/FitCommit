@@ -29,6 +29,11 @@ export const appRouter = router({
     .run();
     return true;
   }),
+  deleteTodo: publicProcedure.input(z.number()).mutation(async(opts) => {
+    await db.delete(todos).where(eq(todos.id, opts.input)).run();
+    return true;
+  })
+
   
 });
 

@@ -15,6 +15,11 @@ export default function TodoList({initialTodos,}:{initialTodos: Awaited<ReturnTy
       getTodos.refetch();
     },
   });
+  const deleteTodo = trpc.deleteTodo.useMutation({
+    onSettled: () => {
+      getTodos.refetch();
+    },
+  });
   const [content, setContent] = useState("");
   return (
     <div>
@@ -34,6 +39,14 @@ export default function TodoList({initialTodos,}:{initialTodos: Awaited<ReturnTy
             }}
           />
           <label htmlFor={`check-${todo.id}`}>{todo.content}</label>
+          <button 
+            onClick={async () => {
+              deleteTodo.mutate(todo.id);
+            }}
+            className="text-gray-500 hover:text-red-400"
+            >
+              x
+            </button>
           </div>
         ))}
       </div>
