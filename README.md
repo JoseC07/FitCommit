@@ -1,4 +1,5 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+###Next.js 14 App Router Fully Types Example
+Simple crud examples to build other projects. Using zod, tRPC, drizzle ORM, and sqlite.
 
 ## Getting Started
 
